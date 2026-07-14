@@ -1,0 +1,23 @@
+# Pipeline reprodutível de dados/treino (DVC).
+# Rodar c/  dvc repro
+stages:
+  train:
+    cmd: >
+      uv run python -m recommender.interfaces.cli.train
+      --model-type baseline --model-name baseline-v1
+      --data-dir data/raw --model-dir models
+    deps:
+      - data/raw/ratings.csv
+      - data/raw/movies.csv
+      - src/recommender
+    outs:
+      - models/baseline-v1.pkl
+
+  evaluate:
+    cmd: >
+      uv run python -m recommender.interfaces.cli.evaluate
+      --model-name baseline-v1 --data-dir data/raw --model-dir models
+    deps:
+      - models/baseline-v1.pkl
+      - data/raw/ratings.csv
+      - src/recommender
