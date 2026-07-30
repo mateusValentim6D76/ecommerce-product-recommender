@@ -6,14 +6,14 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
 
 WORKDIR /app
 
-# Instala dependências primeiro (melhor cache de camadas).
+# Instala depencias primeiro
 COPY pyproject.toml README.md ./
 COPY src ./src
 RUN uv sync --no-dev
 
 EXPOSE 8000
 
-# Sobe a API FastAPI via uvicorn.
+# Sobe a API FastAPI via uvicorn
 CMD ["uv", "run", "--no-dev", "uvicorn", \
      "recommender.interfaces.api.app:app", \
      "--host", "0.0.0.0", "--port", "8000"]

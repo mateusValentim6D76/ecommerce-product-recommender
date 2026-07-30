@@ -2,6 +2,7 @@ import pytest
 
 from recommender.domain.value_objects.item_id import ItemId
 
+
 def test_creates_valid_item_id() -> None:
     item_id = ItemId(10)
 
@@ -11,12 +12,13 @@ def test_creates_valid_item_id() -> None:
 def test_two_item_ids_with_same_value_are_equal() -> None:
     assert ItemId(10) == ItemId(10)
 
+
 def test_is_immutable() -> None:
     item_id = ItemId(10)
 
-    with pytest.raises(Exception):
+    with pytest.raises(Exception):  # frozen dataclass -> FrozenInstanceError
         item_id.value = 20
-        
+
 
 def test_rejects_zero() -> None:
     with pytest.raises(ValueError):

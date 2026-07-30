@@ -13,6 +13,7 @@ Definições rápidas:
 """
 
 import math
+
 from recommender.domain.value_objects.item_id import ItemId
 
 
@@ -28,9 +29,8 @@ def recall_at_k(recommended: list[ItemId], relevant: set[ItemId], k: int) -> flo
     # acertos nos top-k dividido pelo total de relevantes
     if not relevant:
         return 0.0
-    hits= sum(1 for item in recommended[:k] if item in relevant)
+    hits = sum(1 for item in recommended[:k] if item in relevant)
     return hits / len(relevant)
-
 
 
 def ndcg_at_k(recommended: list[ItemId], relevant: set[ItemId], k: int) -> float:

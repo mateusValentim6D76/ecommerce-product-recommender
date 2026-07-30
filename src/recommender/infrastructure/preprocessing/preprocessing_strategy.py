@@ -11,8 +11,7 @@ class FeedbackStrategy(Protocol):
     ou IMPLÍCITO (gostei/não gostei), sem espalhar if/else pelo código.
     """
 
-    def target(self, interaction: Interaction) -> float:
-        ...
+    def target(self, interaction: Interaction) -> float: ...
 
 
 class ExplicitFeedbackStrategy:

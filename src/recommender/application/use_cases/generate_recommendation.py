@@ -6,11 +6,7 @@ from recommender.domain.value_objects.user_id import UserId
 
 
 class GenerateRecommendation:
-    """Caso de uso: gera recomendações para um usuário.
-
-    Carrega o modelo do repositório, pede a recomendação e (opcional)
-    filtra itens que o usuário já viu, usando o RecommendationService.
-    """
+    """Carrega o modelo, gera recomendações e opcionalmente filtra itens vistos."""
 
     def __init__(
         self,
@@ -33,8 +29,7 @@ class GenerateRecommendation:
         if model is None:
             raise ValueError(f"Model '{model_name}' not found")
 
-        # Pede mais candidatos (2k) quando vai filtrar vistos, para
-        # ainda sobrar k depois da filtragem.
+        # Pede mais candidatos quando vai filtrar, para ainda sobrar k.
         candidates = model.recommend(user_id, k * 2 if filter_seen else k)
 
         if filter_seen:

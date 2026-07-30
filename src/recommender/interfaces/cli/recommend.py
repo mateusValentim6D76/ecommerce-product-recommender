@@ -20,6 +20,7 @@ def main(argv: list[str] | None = None) -> None:
     from recommender.application.use_cases.generate_recommendation import (
         GenerateRecommendation,
     )
+    from recommender.domain.value_objects.user_id import UserId
     from recommender.infrastructure.datasets.movielens_reader import MovieLensReader
     from recommender.infrastructure.datasets.pandas_interaction_repository import (
         PandasInteractionRepository,
@@ -27,7 +28,6 @@ def main(argv: list[str] | None = None) -> None:
     from recommender.infrastructure.persistence.file_pickle_model_repository import (
         FilePickleModelRepository,
     )
-    from recommender.domain.value_objects.user_id import UserId
 
     reader = MovieLensReader(
         ratings_path=f"{args.data_dir}/ratings.csv",

@@ -27,7 +27,6 @@ class Experiment:
     def __hash__(self) -> int:
         return hash(self.name)
 
-
     def start_at(self, started_at: datetime) -> None:
         self.started_at = started_at
 

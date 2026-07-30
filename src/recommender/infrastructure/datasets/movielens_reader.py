@@ -1,3 +1,5 @@
+"""Leitura dos CSVs do MovieLens, traduzindo cada linha em objetos do domínio."""
+
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -14,12 +16,7 @@ _NO_GENRES = "(no genres listed)"
 
 
 class MovieLensReader:
-    """Adapter: implementa DatasetReader lendo os CSVs do MovieLens.
-
-    É AQUI que o pandas mora a fronteira suja com o mundo externo.
-    Cada linha de CSV é TRADUZIDA para um objeto de domínio limpo,
-    de modo que o nucleo nunca vê um DataFrame.
-    """
+    """Implementa DatasetReader lendo movies.csv e ratings.csv com pandas."""
 
     def __init__(self, ratings_path: str | Path, movies_path: str | Path) -> None:
         self._ratings_path = Path(ratings_path)

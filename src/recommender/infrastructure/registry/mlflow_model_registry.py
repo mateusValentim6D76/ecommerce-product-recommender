@@ -27,9 +27,7 @@ class _RecommenderPyfunc(PythonModel):
     def predict(self, context, model_input: pd.DataFrame):  # noqa: ANN001
         results = []
         for _, row in model_input.iterrows():
-            recommendation = self._model.recommend(
-                UserId(int(row["user_id"])), int(row["k"])
-            )
+            recommendation = self._model.recommend(UserId(int(row["user_id"])), int(row["k"]))
             results.append(
                 [(item.item_id.value, item.score.value) for item in recommendation.items]
             )

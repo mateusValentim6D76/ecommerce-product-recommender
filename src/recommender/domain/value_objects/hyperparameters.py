@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 class Hyperparameters:
     """Configuração de entrada de um treino (imutável)
 
-    Flexvel: o conjunto varia por modelo (baseline vs. neural)
+    Flexvel: o conjunto varia por modelo (baseline vsneural)
     """
 
     values: dict[str, float] = field(default_factory=dict)

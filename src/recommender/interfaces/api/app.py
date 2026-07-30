@@ -1,9 +1,4 @@
-"""API de inferência (FastAPI).
-
-`create_app` recebe o caso de uso pronto (injeção de dependência) por
-isso é testável com um caso de uso falso. `app` (no fim) é a composição
-padrão que o uvicorn sobe, lendo caminhos do ambiente.
-"""
+"""API de inferência (FastAPI)."""
 
 import os
 
@@ -42,11 +37,7 @@ def create_app(
 
 
 def _build_default_app() -> FastAPI:
-    """Composição padrão a partir de variáveis de ambiente.
-
-    Resiliente: se os dados/modelo não estiverem presentes, ainda sobe
-    a app (os endpoints é que retornarão erro), para não quebrar no import.
-    """
+    """Composição padrão lida de variáveis de ambiente (usada pelo uvicorn)."""
     data_dir = os.environ.get("DATA_DIR", "data/raw")
     model_dir = os.environ.get("MODEL_DIR", "models")
     model_name = os.environ.get("MODEL_NAME", "pytorch")

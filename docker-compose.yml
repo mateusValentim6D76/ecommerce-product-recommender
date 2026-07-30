@@ -1,4 +1,4 @@
-# Sobe a stack local: servidor MLflow + API de inferência.
+# Sobe a stack local: servidor MLflow + API de inferencia
 # Uso:  docker compose up --build
 services:
   mlflow:

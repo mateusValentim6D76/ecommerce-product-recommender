@@ -24,8 +24,4 @@ class PandasInteractionRepository:
         return list(self._interactions)
 
     def for_user(self, user_id: UserId) -> list[Interaction]:
-        return [
-            interaction
-            for interaction in self._interactions
-            if interaction.user_id == user_id
-        ]
+        return [interaction for interaction in self._interactions if interaction.user_id == user_id]

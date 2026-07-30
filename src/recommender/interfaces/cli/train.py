@@ -24,7 +24,7 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--epochs", type=int, default=10)
     parser.add_argument("--learning-rate", type=float, default=0.01)
     parser.add_argument("--embedding-dim", type=int, default=32)
-    parser.add_argument("--mlflow-uri", default=None)
+    parser.add_argument("--mlflow-uri", default="sqlite:///mlflow.db")
     args = parser.parse_args(argv)
 
     from recommender.application.use_cases.evaluate_model import EvaluateModel

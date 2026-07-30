@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 
+
 @dataclass(frozen=True)
 class Score:
-
     """Relevancia prevista por um modelo para um item.
 
     Diferente de Rating (entrada humana), Score é saída do modelo.
@@ -14,7 +14,3 @@ class Score:
     def __post_init__(self) -> None:
         if self.value < 0:
             raise ValueError("Score must be grather than or equal to zero")
-        
-    
-
-

@@ -17,7 +17,7 @@ def test_two_user_ids_with_same_value_are_equal() -> None:
 def test_is_immutable() -> None:
     user_id = UserId(7)
 
-    with pytest.raises(Exception):
+    with pytest.raises(Exception):  # frozen dataclass -> FrozenInstanceError
         user_id.value = 20
 
 

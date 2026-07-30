@@ -138,9 +138,9 @@ def test_generate_recommendation_filters_seen_and_returns_top_k() -> None:
     model_repo = _FakeModelRepo(_FakeModel(items))
     history = [_interaction(user=7, item=2)]  # já viu o item 2
 
-    recommendation = GenerateRecommendation(
-        model_repo, _FakeInteractionRepo(history)
-    ).execute(model_name="m", user_id=UserId(7), k=2, filter_seen=True)
+    recommendation = GenerateRecommendation(model_repo, _FakeInteractionRepo(history)).execute(
+        model_name="m", user_id=UserId(7), k=2, filter_seen=True
+    )
 
     assert [ri.item_id.value for ri in recommendation.items] == [1, 3]
 

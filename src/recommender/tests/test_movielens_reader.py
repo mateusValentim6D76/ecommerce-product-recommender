@@ -17,9 +17,7 @@ def _write_movielens(tmp_path):
     )
     ratings = tmp_path / "ratings.csv"
     ratings.write_text(
-        "userId,movieId,rating,timestamp\n"
-        "1,1,4.0,964982703\n"
-        "1,2,3.5,964982931\n",
+        "userId,movieId,rating,timestamp\n1,1,4.0,964982703\n1,2,3.5,964982931\n",
         encoding="utf-8",
     )
     return ratings, movies

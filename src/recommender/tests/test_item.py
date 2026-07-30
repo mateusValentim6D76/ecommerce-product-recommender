@@ -36,10 +36,10 @@ def test_default_genres_are_not_shared_between_items() -> None:
 
     assert a.genres is not b.genres
 
+
 def test_identity_is_based_only_on_item_id() -> None:
     # Mesmo id, atributos diferentes -> mesmo item (entity)
     a = Item(ItemId(1), "Toy Story", ["Comedy"])
     b = Item(ItemId(1), "Toy Story (1995)", ["Animation"])
 
     assert a == b
-
