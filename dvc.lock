@@ -1,0 +1,32 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: "uv run python -m recommender.interfaces.cli.train --model-type baseline
+      --model-name baseline-v1 --data-dir data/raw --model-dir models\n"
+    deps:
+    - path: data/raw/movies.csv
+      hash: md5
+      md5: ed94fab72b62442ef8150d9446e000d6
+      size: 494431
+    - path: data/raw/ratings.csv
+      hash: md5
+      md5: 325a6f09399d1c45671f187505e1a100
+      size: 2483723
+    - path: src/recommender
+      hash: md5
+      md5: 6e97db2f923b16ce513ec11e8b0d8f76.dir
+      size: 420982
+      nfiles: 209
+  evaluate:
+    cmd: "uv run python -m recommender.interfaces.cli.evaluate --model-name baseline-v1
+      --data-dir data/raw --model-dir models\n"
+    deps:
+    - path: data/raw/ratings.csv
+      hash: md5
+      md5: 325a6f09399d1c45671f187505e1a100
+      size: 2483723
+    - path: src/recommender
+      hash: md5
+      md5: 6e97db2f923b16ce513ec11e8b0d8f76.dir
+      size: 420982
+      nfiles: 209

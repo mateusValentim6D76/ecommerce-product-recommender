@@ -1,0 +1,5 @@
+outs:
+- md5: f4d2cd9bff952199e38050880217befd
+  size: 1394806
+  hash: md5
+  path: pytorch-v1.pkl
