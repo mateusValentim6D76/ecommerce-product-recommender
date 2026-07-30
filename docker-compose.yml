@@ -1,5 +1,3 @@
-# Sobe a stack local: servidor MLflow + API de inferencia
-# Uso:  docker compose up --build
 services:
   mlflow:
     image: ghcr.io/mlflow/mlflow:latest

@@ -1,2 +1,8 @@
 /movies.csv
 /ratings.csv
+
+# lixo de extração e artefatos locais
+/ml-latest-small/
+mlflow.db
+mlruns/
+mlartifacts/
